@@ -123,11 +123,46 @@ if(ano>=0 && ano%4===0 && (ano%100!==0 || ano%400===0)) {
 } */
 
 // Escribir un programa JavaScript en el que el programa escoge al azar un entero entre 1 y 10, el usuario , luego a el usuario se le pedirá que introduzca un número en un popup para intentar adivinarlo. Si la entrada del usuario coincide con el número de conjetura, el programa mostrará un mensaje de "buen trabajo" de lo contrario mostrará un mensaje de "No corresponde"
-const randNum = Math.round(Math.random() * 10);
+/* const randNum = Math.round(Math.random() * 10);
 console.log(randNum)
 miNum = prompt('Intente advinar el numero eligido','Numero de 1 al 10');
 if(+miNum === randNum) {
     alert('Buen trabajo!');
 } else {
     alert('No corresponde');
+} */
+
+//Movimientos del Robot - Nucba:
+let comando = (string) => {
+    let posX = 0;
+    let posY = 0;
+    strArr = string.match(/[udlr]/gi);
+    console.log(strArr)
+    strArr.forEach( (item,index) => {
+        if(item.match(/u/i)) {
+            posY += 1;
+            if (posY === 0 && posX === 0) { alert(`Llegó al punto inicial en el ${index+1} movimiento!`)};
+            console.log(`posX: ${posX} / posY: ${posY} / ${index+1}`);
+        }
+        else if(item.match(/d/i)) {
+            posY -= 1;
+            if (posY === 0 && posX === 0) { alert(`Llegó al punto inicial en el ${index+1} movimiento!`)};
+            console.log(`posX: ${posX} / posY: ${posY} / ${index+1}`);
+        }
+        else if(item.match(/l/i)) {
+            posX -= 1;
+            if (posY === 0 && posX === 0) { alert(`Llegó al punto inicial en el ${index+1} movimiento!`)};
+            console.log(`posX: ${posX} / posY: ${posY} / ${index+1}`);
+        }
+        else if(item.match(/r/i)) {
+            posX += 1;
+            if (posY === 0 && posX === 0) { alert(`Llegó al punto inicial en el ${index+1} movimiento!`)};
+            console.log(`posX: ${posX} / posY: ${posY} / ${index+1}`);
+        }
+        else { posX = posX; posY = posY;}
+        
+    }
+    )
+    return posX + ' ' + posY
 }
+console.log(comando('UUDDLRLLLLLUUUUUDDUURR'))
