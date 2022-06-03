@@ -133,7 +133,7 @@ if(+miNum === randNum) {
 } */
 
 //Movimientos del Robot - Nucba:
-let comando = (string) => {
+/* let comando = (string) => {
     let posX = 0;
     let posY = 0;
     strArr = string.match(/[udlr]/gi);
@@ -165,4 +165,70 @@ let comando = (string) => {
     )
     return posX + ' ' + posY
 }
-console.log(comando('UUDDLRLLLLLUUUUUDDUURR'))
+console.log(comando('UUDDLRLLLLLUUUUUDDUURR'));
+ */
+
+// - Mostrar todos los números de 1 a n aumentando de 1 en 1 donde n lo ingresa el usuario en un prompt.
+function unoAuno(){
+    const n = Number(prompt('Ingrese un numero máximo','solamente numeros menores que 10'));
+    let i = 0;
+    while(i<=n){
+        console.log(i);
+        i++;
+    }
+}
+// - Mostrar todos los números de 1 a N aumentando de 2 en 2 donde n lo ingresa el usuario en un prompt.
+function dosAdos(){
+    const n = Number(prompt('Ingrese un numero máximo','solamente numeros menores que 10'));
+    let i = 0;
+    while(i<=n){
+        console.log(i);
+        i += 2;
+    }
+}
+// - Mostrar todos los números de N a 1 disminuyendo de 1 en 1 donde n lo ingresa el usuario en un prompt.
+function menosUnoaUno(){
+    const n = Number(prompt('Ingrese un numero máximo','solamente numeros menores que 100'));
+    let i = n;
+    while(i>=1){
+        console.log(i);
+        i--;
+    }
+}
+// - Escribir utilizando console.log la tabla del 9 hasta 9x10.
+function tablaDe9() {
+    let a = 0;
+    while(a<=10){
+        console.log(`9 x ${a} = ${9*a}`);
+        a++;
+    }
+}
+// - Pedir al usuario que ingrese un número en un prompt, hacer la suma de todos los dígitos, validar que el número ingresado no contenga letras.
+function validarNum(){
+    const num = prompt('Ingrese solamente numeros', 'solo numeros');
+    let suma;
+    sumar = ()=> {
+        let i = 0; let result=0;
+        while(i < num.length){ result += Number(num[i]); i++};
+        return result
+    }
+    isNaN(num) === true ? suma = validarNum()
+    : suma = sumar();
+    console.log(suma);
+    alert(`La suma de los digitos es: ${suma}`);
+}
+// - Realizar la suma de todos los números pares entre N y M donde N y M los ingresa un usuario.
+function sumarPares(){
+    let n = Number(prompt('Ingrese valor de N'));
+    let m = Number(prompt('Ingrese valor de M'));
+    
+    let i;
+    n%2 === 0 ? i = n + 2 : i = n + 1;
+    
+    while(i < m) {
+        console.log(i);
+        i += 2;
+    }
+}
+console.log(Number(null))
+window.onload = ()=> {sumarPares();}
