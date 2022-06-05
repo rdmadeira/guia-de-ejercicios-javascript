@@ -374,5 +374,36 @@ function stringToArray(){
     console.log(sta);
 }
 
+// - Existen dos arrays, cada uno con 5 palabras, generar un nuevo array con la intersección de ambos elementos. (Ejemplo: [1,2,3] unión [1,2,4] = [1,2]
+function intersectionArr(a,b){
+    a = ['gal', 'bethania', 'caetano', 'gil', 'joao', 'tom ze', 'moraes'];
+    b = ['chico', 'djavan', 'milton', 'caetano', 'bethania'];
+    let c = a.filter((item) => (b.includes(item) === true));
+    console.log(c);
+}
 
-window.onload = ()=> {stringToArray();}
+// - Existen dos arrays, cada uno con 5 palabras, generar un nuevo array con la unión de ambos elementos, (Ejemplo: [1,2,3] unión [1,2,4] = [1,1,2,2,3,4]
+function unionArr(a,b){
+    a = ['gal', 'bethania', 'caetano', 'gil', 'joao'];
+    b = ['chico', 'djavan', 'milton', 'caetano', 'bethania'];
+    const c = a.concat(b);
+    console.log(c);
+}
+
+// - El usuario ingresa dos conjuntos de números separados por coma, el programa debe determinar si ambos conjuntos tienen la misma cantidad de números.
+function numItems(){
+    const a = prompt('Ingrese numeros separados por comma');
+    const b = prompt('Ingrese numeros separados por comma');
+    a.split(',').length === b.split(',').length ? alert('Cantidad de items iguales') : alert('Cantidad de items distintas');
+}
+
+// - El usuario ingresa dos conjuntos de números separados por coma, si ambos conjuntos tienen la misma cantidad de elementos mostrar un arreglo que contenga la suma de cada elemento. (Ejemplo: [1,2,3] + [2,3,4] = [3,5,7])
+function sumarSiMismoTamaño(){
+    const a = prompt('Ingrese numeros separados por comma').split(',');
+    const b = prompt('Ingrese numeros separados por comma').split(',');
+    let c;
+    a.length === b.length ? c = a.map((item,index) => item = Number(item) + Number(b[index])) : alert('Numeros distintos de elementos');
+    console.log(c);
+}
+
+window.onload = ()=> {sumarSiMismoTamaño();}
