@@ -406,4 +406,61 @@ function sumarSiMismoTamaño(){
     console.log(c);
 }
 
-window.onload = ()=> {sumarSiMismoTamaño();}
+// - Crear una función que reciba un arreglo con números y devuelva un nuevo arreglo con solo los números pares:
+function showEven(arr){
+    return arr.filter(item => item%2 === 0)
+}
+
+// - Crear una función que reciba un arreglo con palabras, crear un nuevo arreglo que contenga solo las palabras que empiezan con una vocal.
+function showVowelStarts(arr){
+    const vowel = new RegExp(/[aeiou]/i)
+    let arrVowel = arr.filter((item) => item[0].match(vowel));
+    console.log(arrVowel);
+}
+
+// - Crear un método que permite intercambiar las posiciones de dos elementos de un arreglo en base a sus índices:
+Array.prototype.swapItems = function (in1, in2){
+    console.log(this)
+    let a = this[in1];
+    let b = this[in2];
+    this[in1] = b;
+    this[in2] = a;
+    console.log(this)
+    return this;
+}
+
+// - Realizar el mismo ejercicio anterior pero que en esta ocasión devuelva un arreglo nuevo con los datos cambiados.
+Array.prototype.newSwapItems = function (in1, in2){
+    let arr2 = this.slice(0);
+    let a = arr2[in1];
+    let b = arr2[in2];
+    arr2[in1] = b;
+    arr2[in2] = a;
+    console.log(this)
+    console.log(arr2)
+}
+
+// - Crear una función que reciba un arreglo y que cree uno nuevo con todos los elementos ordenados de menor a mayor, (sin ocupar el método .sort)
+Array.prototype.orderUp = function(){
+    console.log(this);
+    for(j = 0; j < this.length - 1; j++){    
+        for(i = 0; i < this.length; i++){
+            let a = this[i];
+            let b = this[i + 1];
+            this[i] > this[i + 1] ? (this[i] = b, this[i + 1] = a)
+            : (this[i], this[i + 1])
+        }
+    }
+    console.log(this);
+    return this;
+}
+
+// - Crear una función que reciba un arreglo y que cree uno nuevo con todos los elementos ordenados de mayor a menor.
+Array.prototype.orderNewDown = function(){
+    console.log(this);
+    let newArr = this.sort((a,b) => a < b ? 1 : a > b ? -1 : 0);
+    console.log(newArr);
+    return newArr;
+}
+
+window.onload = ()=> {['Holanda', 'Brasil', 'Espanha', 'Argentina', 'Francia', 'Belgica', 'Alemanha'].orderNewDown();}
