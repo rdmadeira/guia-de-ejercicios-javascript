@@ -373,4 +373,6 @@ function stringToArray(){
     const sta = prompt('Ingrese valores entre commas').split(', ');
     console.log(sta);
 }
+
+
 window.onload = ()=> {stringToArray();}
