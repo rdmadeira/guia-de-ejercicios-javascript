@@ -174,18 +174,6 @@ Diamante:
 
 ## Funciones
 
-- Crear una función que reciba un valor cualquiera y lo muestre ocupando console.log(), llamar a la función pasando el valor 5
-
-- La siguiente función devuelve undefined en lugar de la multiplicación, se pide arreglarla
-  
-  ~~~js
-	function multiply(a, b){
-	  a * b
-	}
-   ~~~
-
-- Crear una función que reciba dos valores y devuelva la suma de ellos.
-
 - Crear una función que reciba un número entero y muestre un error si el tipo de dato pasado es de otro tipo.
 
 - Crear una función autoejecutable que muestre "muuu" en pantalla

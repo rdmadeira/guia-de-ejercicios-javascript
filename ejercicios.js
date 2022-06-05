@@ -219,16 +219,158 @@ function validarNum(){
 }
 // - Realizar la suma de todos los números pares entre N y M donde N y M los ingresa un usuario.
 function sumarPares(){
-    let n = Number(prompt('Ingrese valor de N'));
-    let m = Number(prompt('Ingrese valor de M'));
-    
-    let i;
-    n%2 === 0 ? i = n + 2 : i = n + 1;
-    
+    const n = Number(prompt('Ingrese valor de N'));
+    const m = Number(prompt('Ingrese valor de M'));
+    let i = n + 1;
+    let suma = 0;
     while(i < m) {
-        console.log(i);
-        i += 2;
+        i%2 === 0 ? suma += i: suma;
+        i++;
     }
+    console.log(suma);
 }
-console.log(Number(null))
-window.onload = ()=> {sumarPares();}
+function sumarPares2(){
+    const n = Number(prompt('Ingrese valor de N'));
+    const m = Number(prompt('Ingrese valor de M'));
+    let i = n + 1;
+    let numArr = [];
+    while(i < m){
+        numArr.push(i);
+        numArr = numArr.filter(item => item%2 === 0);
+        i++;
+    }
+    console.log(numArr)
+    let suma = 0;
+    numArr.forEach(item => suma += item);
+    console.log(suma);
+}
+
+// Realizar la sumatoria de los primeros N números, donde N es ingresado por el usuario.
+function sumarNNumeros(){
+    const n = prompt('Ingrese numero maximo');
+    let suma = 0;
+    let i = 0;
+    while(i <= n){
+        suma += i;
+        i++;
+    }
+    console.log(suma);
+    // const n = prompt('Ingrese numero maximo');
+    // let arr = [];
+    // let i = 0;
+    // while(i <= n){
+    //     arr.push(i);
+    //     i++;
+    // }
+    // let suma = 0;
+    // arr.forEach((item) => suma += item);
+    // console.log(suma);
+}
+
+// - Realizar el factorial de los primeros N números.
+function factorialN(){
+    const n = prompt('Encuentre el factorial de:');
+    let i = 1;
+    let factorial = 1;
+    while(i <= n){
+       factorial *= i;
+       i++;  
+    }
+    console.log(factorial)
+}
+
+// ### Ejercicios de divisores con while (o for)
+// - Encontrar todos los divisores de un número.
+function divisoresNum(e){
+    e = prompt('Numero para encontrar divisores')
+    let arrDiv = [];
+    for(i = -Math.abs(e) + 1; i < Math.abs(e); i++){
+        e%i === 0 ? arrDiv.push(i) : arrDiv;
+    }
+    alert(arrDiv.join(', '));
+}
+
+// - Determinar si un número ingresado por el usuario en un loop es primo o no, validar que el número ingresado sea mayor o igual a dos.
+function esNumPrimo(e) {
+    e = Number(prompt('Ingrese un numero para saber si es primo'));
+    let suma = 0;
+    if(e >= 2) {
+        for(i = 1; i < e; i++) {
+            e % i === 0 && i!== 1 ? suma++ : suma;
+        }
+     } else {
+        alert('Ingrese un numero mayor o igual a 2!');
+        esNumPrimo(e);
+    }
+    suma === 0 ? alert(`${e} es numero primo`) : alert(`${e} NO es numero primo`);
+}
+
+// - Crear un programa que determine si un número es perfecto o no, (se dice que un número es perfecto si el número es igual a sus divisores, ejemplos 6 = 1 + 2 + 3)
+function esNumPerf(e){
+    e = Number(prompt('Ingrese un numero para saber si es perfecto'));
+    sumaDiv = 0;
+    for(i = 1; i < e; i++) {
+        e % i === 0 ? sumaDiv += i : sumaDiv;
+    }
+    e === sumaDiv ? alert(`${e} es numero perfecto`) : alert(`${e} no es numero perfecto`);
+}
+
+// - Crear una función que reciba un número entero y muestre un error si el tipo de dato pasado es de otro tipo.
+function esIntero(e){
+    e = Number(prompt('Es numero entero?'));
+    Number.isInteger(e) ? console.log(e) : alert('Ingrese un numero entero!')
+}
+
+// ## Array
+function array() {
+// - Dado el array = [1,2,3,4,5,6]
+    let arr1 = [1,2,3,4,5,6];
+//	- Iterar por todos los elementos dentro de un array utilizando while y mostrarlos en pantalla.
+    // let i = 0;
+    // while(i < arr1.length){
+    //     alert(arr1[i]);
+    //     i++;
+    // }
+    
+//	- Iterar por todos los elementos dentro de un array utilizando for y mostrarlos en pantalla.
+    // for(i = 0; i < arr1.length; i++){
+    //     alert(arr1[i]);    
+    // }
+//	- Iterar por todos los elementos dentro de un array utilizando .forEach y mostrarlos en pantalla.
+	// arr1.forEach(item => alert(item));
+//	- Mostrar todos los elementos dentro de un array sumándole uno a cada uno.
+    // arr1.forEach(item => alert(item + 1));
+//	- Generar una copia de un array pero con todos los elementos incrementado en 1.
+    let arr2 = arr1.map(item => item + 1);
+    console.log(arr2);
+//	- Calcular el promedio
+    let suma = 0;
+    arr2.forEach(item => (suma += item));
+    alert(`Promedio de Arr2 es ${suma/arr1.length}`)
+}
+
+// - Crear un array vacío, luego generar N números al azar y guardarlos en un array, N es introducido por el usuario a través de un prompt.
+
+function veinteNum(){
+    n = prompt('numero de largo de array');
+    let arr = [];
+    for(i = 0; i < n; i++){
+        arr.push(Math.round(Math.random() * 100));
+    }
+    console.log(arr);
+}
+
+// - Dado un array que contiene ["azul", "amarillo", "rojo", "verde", "café", "rosa"] determinar si un color introducido por el usuario a través de un prompt se encuentra dentro del array o no.
+function checkColor(){
+    let c = prompt('ingrese un color: ');
+    let arrayColor = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+    arrayColor.find(item => item.match(/c/i)) ? alert(`El color ${c} pertenece al array`) : 
+    alert(`El color ${c} no pertenece al array`);
+}
+
+// - El usuario ingrese un string con varias palabras separadas por coma en un popup y se deben convertir en un array, (el usuario ingresa: "1,2,3,4,5" y se convierte en [1,2,3,4,5])
+function stringToArray(){
+    const sta = prompt('Ingrese valores entre commas').split(', ');
+    console.log(sta);
+}
+window.onload = ()=> {stringToArray();}
